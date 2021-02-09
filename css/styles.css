@@ -1,0 +1,105 @@
+/*html{
+	box-sizing: border-box;
+}*/
+
+*::before,
+*::after,
+*{
+	/*box-sizing: inherit;*/
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	background: linear-gradient(to bottom, blue, lightblue);
+	transform-style: preserve-3d;
+	perspective: 1000px;
+}
+
+.container{
+	position: relative;
+	margin-top: 150px;
+	width: 600px;
+	height: 200px;
+	transform: rotateX(45deg);
+	perspective-origin:center;
+	background: linear-gradient(to bottom, grey, #2F2929);
+}
+
+.gradient{
+	display: inline-block;
+	position: absolute;
+	height: 30px;
+	width: 100%;
+	top: 45%;
+	background: linear-gradient(to right, transparent 30%, white 30%);
+	background-size: 150px;
+	background-position: -200px;
+	animation: trass linear 0.8s infinite reverse;
+}
+
+.box, .box1{
+	position: absolute;
+	width: 256px;
+	overflow: hidden;
+	transform: rotateX(0deg) translateY(-40%) scale(1.1);
+	background-image: url(../img/spritestrip.png);
+	background-repeat: no-repeat;
+	background-position: 0px;
+	animation: run linear 0.8s infinite;
+	animation-timing-function: steps(1, jump-start);
+}
+
+.box{
+	height: 256px;
+	top: -20%;
+	z-index: 21;
+}
+
+.box1{
+	z-index: 20;
+	top: 110%;
+	height: 30px;
+	position: relative;
+	opacity: 0.3;
+	transform: rotateY(0.5turn) rotate(0.5turn) translateY(300%);
+	background-position-y:-230px;
+}
+
+.box1 img{
+	position: absolute;
+	bottom: 0;
+}
+
+@keyframes trass{
+	from{
+		background-position:-200px; 
+	}
+	to{
+		background-position:-44px;
+	}
+}
+
+@keyframes run{
+	0%{
+		background-position-x: 0px;
+	}
+	20%{
+		background-position-x: -275px;
+	}
+	40%{
+		background-position-x: -525px;
+	}
+	60%{
+		background-position-x: -775px;
+	}
+	80%{
+		background-position-x: -1035px;
+	}
+	100%{
+		background-position-x: -1300px;
+	}
+}
