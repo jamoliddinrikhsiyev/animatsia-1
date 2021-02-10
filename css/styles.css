@@ -1,11 +1,11 @@
-/*html{
+html{
 	box-sizing: border-box;
-}*/
+}
 
 *::before,
 *::after,
 *{
-	/*box-sizing: inherit;*/
+	box-sizing: inherit;
 	margin: 0;
 	padding: 0;
 }
@@ -15,26 +15,54 @@ body{
 	justify-content: center;
 	height: 100vh;
 	background: linear-gradient(to bottom, blue, lightblue);
-	transform-style: preserve-3d;
-	perspective: 1000px;
+	background-repeat: no-repeat;
 }
 
 .container{
+	display: inline-block;
+	width: 900px;
+	height: 200px;
 	position: relative;
 	margin-top: 150px;
-	width: 600px;
-	height: 200px;
-	transform: rotateX(45deg);
-	perspective-origin:center;
-	background: linear-gradient(to bottom, grey, #2F2929);
+}
+
+.box-wrapper{
+	position: relative;
+	width: inherit;
+	height: inherit;
+	display: inline-block;
+	background:  #414141;
+	transform: perspective(800px) rotateX(40deg);
+}
+
+.shadow{
+	width: 974px;
+	height: 30px;
+	background-color: #272222;
+	position: absolute;
+	top: 91%;
+	left: -37px;
+	transform: perspective(800px) rotateX(-9deg);
+}
+
+.shadow2{
+	width: 100%;
+	position: absolute;
+    left: 3.1%;
+    transform: perspective(800px) rotateX(40deg) scaleX(1.18);
+    height: 70px;
+    width: 93.9%;
+    background: linear-gradient(#000, transparent);
+    opacity: 0.5;
+    top: 101%;
 }
 
 .gradient{
 	display: inline-block;
 	position: absolute;
-	height: 30px;
+	height: 20px;
 	width: 100%;
-	top: 45%;
+	top: 40%;
 	background: linear-gradient(to right, transparent 30%, white 30%);
 	background-size: 150px;
 	background-position: -200px;
@@ -45,7 +73,7 @@ body{
 	position: absolute;
 	width: 256px;
 	overflow: hidden;
-	transform: rotateX(0deg) translateY(-40%) scale(1.1);
+	transform: rotateX(0deg) translateY(-130%);
 	background-image: url(../img/spritestrip.png);
 	background-repeat: no-repeat;
 	background-position: 0px;
@@ -55,23 +83,15 @@ body{
 
 .box{
 	height: 256px;
-	top: -20%;
 	z-index: 21;
 }
 
 .box1{
 	z-index: 20;
-	top: 110%;
 	height: 30px;
-	position: relative;
-	opacity: 0.3;
-	transform: rotateY(0.5turn) rotate(0.5turn) translateY(300%);
+	opacity: 0.1;
+	transform: rotateY(0.5turn) rotate(0.5turn) translateY(230%);
 	background-position-y:-230px;
-}
-
-.box1 img{
-	position: absolute;
-	bottom: 0;
 }
 
 @keyframes trass{
